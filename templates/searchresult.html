@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<a href="{{url_for('index')}}">back to home</a>
+<table border="1px" style="margin-top:10px;">
+    <tr>
+        <th>Task</th>
+        <th>Time Added</th>
+        <th>Actions</th>
+    </tr>
+    <tr>
+        <td>{{ task.task}}</td>
+        <td>{{ task.date_created}}</td>
+        <td>
+            <a href="{{url_for('delete',id = task._id)}}">Delete</a>
+            <br>
+            <a href="{{url_for('update',id = task._id)}}">Update</a>
+        </td>
+    </tr>
+
+</table>
+{% if error %}<p><strong>{{ error }}</strong></p>{% endif %}
+
+{% endblock %}
